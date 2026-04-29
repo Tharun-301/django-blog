@@ -15,22 +15,41 @@
   {% endfor %}
 
  <!-- Featured Posts -->
-  <h3 class="text-uppercase text-warning" style="letter-spacing:2px;">Featured Posts</h3>
-  <div class="row mb-2">
-    {% for post in featured_posts %}
+<h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Featured Posts</h3>
+
+<div class="row mb-2">
+  {% for post in featured_posts %}
     {% if not forloop.first %}
-    <div class="col-md-6">
-      <div class="card border-0" >
-        <div class="card-body">
-          <h3><a href="{% url 'blogs' post.slug %}" class="text-dark">{{ post.title }}</a></h3>
-          <small class="mb-1 text-muted">{{ post.created_at | timesince}} ago | {{ post.author }}</small>
-          <p class="card-text">{{ post.short_description }}</p>
+      <div class="col-md-6">
+        <div class="card border-0">
+          <div class="card-body">
+
+            {% if post.slug %}
+              <h3>
+                <a href="{% url 'blogs' post.slug %}" class="text-dark">
+                  {{ post.title }}
+                </a>
+              </h3>
+            {% else %}
+              <h3 class="text-dark">{{ post.title }}</h3>
+            {% endif %}
+
+            <small class="mb-1 text-muted">
+              {{ post.created_at|timesince }} ago | {{ post.author }}
+            </small>
+
+            <p class="card-text">
+              {{ post.short_description|truncatewords:25 }}
+            </p>
+
+          </div>
         </div>
       </div>
-    </div>
     {% endif %}
-    {% endfor %}
-  </div>
+  {% endfor %}
+</div>
+
+
 
   <!-- Recent Articles -->
   <h3 class="text-uppercase text-warning" style="letter-spacing:2px;">Recent Articles</h3>
