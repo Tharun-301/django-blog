@@ -9,7 +9,16 @@
 
   <!-- Rigth Sidebar content -->
    <div class="col-md-9">
-    <span>logged in as {{user}}</span>
+
+     <!-- 🔹 FIXED HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h5 class="mb-0">Dashboard</h5>
+      <small class="text-muted">
+        Logged in as <span class="badge badge-secondary">{{ user.username }}</span>
+      </small>
+    </div>
+
+    <!-- cards -->
     <div class="row">
       <div class="col">
         <div class="card border-default mb-3">
