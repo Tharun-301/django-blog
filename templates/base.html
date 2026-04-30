@@ -55,14 +55,14 @@
           </nav>
         </div>
 
-  <!-- Main content -->
-  {% block content %}
+ <!-- Main content (IMPORTANT: outside container or wrapped separately) -->
+  <main class="flex-fill container">
+    {% block content %}
+    {% endblock %}
+  </main>
 
-  {% endblock %}
-
-  <!-- Footer part -->
-
-  <footer class="blog-footer">
+  <!-- Footer -->
+  <footer class="blog-footer text-center py-3 border-top mt-4">
     <p>Django blog built with 😉 by <a href="#">Tharun Sathunuru</a></p>
   </footer>
   </body>
